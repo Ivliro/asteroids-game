@@ -44,6 +44,11 @@ def main():
             if entity.collides(player):
                 print('Game Over')
                 sys.exit()
+            for entity_shot in shots:
+                if entity_shot.collides(entity):
+                    entity.split()
+                    entity_shot.kill()
+                    break
         for entity in drawable:
             entity.draw(screen)
         pygame.display.flip()
